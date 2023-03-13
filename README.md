@@ -34,6 +34,8 @@ The pattern should enable the same functionality as the existing architecture wi
 
 ![Internal External APIM](internal_external_apim.png)
 
+The above architecture proposes that we configure Application Gateway with both public and private IP addresses and respective listeners. These listeners then have URL rewrites applied which insert /internal and /external in the base URL. APIs in Azure API Management are then configured with API URL suffixes of /internal and /external. The result is Application Gateway will route requests from its public and private IP addresses to the respective APIs in API Management. In addition with the DNS configuration of api.url.com to the public IP and internal.api.url.com to the private IP address, internal developers can target both the internal and external APIs as they wish.
+
 ### Configuration
 
 - Public DNS configuration:
@@ -54,4 +56,4 @@ The pattern should enable the same functionality as the existing architecture wi
   - Internal API configured with an API URL suffix of `external/{api_name}`
   - Internal API configured with an API URL suffix of `internal/{api_name}`
 
-In this blog article we are going to showed you how you can configure API Management and Application Gateway to expose both external and internal APIs, ensuring while providing a transparent experience to users. In our next blog post in this series we will show you how you can deploy this using Azure Bicep.
+In this blog article we showed you how you can configure API Management and Application Gateway to expose both external and internal APIs, ensuring while providing a transparent experience to users. In our next blog post in this series we will show you how you can deploy this using Azure Bicep.
