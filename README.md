@@ -25,7 +25,7 @@ Before we set out on describing the architecture we will define the goals we are
 
 The pattern should enable the same functionality as the existing architecture with the following additional requirements:
 
-- External users should not need to know there are internal APIs
+- External users should not know there are internal APIs
 - External users should not be able to target internal APIs
 - Internal users should be able to target both internal and external APIs
 - API Management should maintain a clear distinction between internal and external APIs
