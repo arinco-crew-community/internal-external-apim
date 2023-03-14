@@ -15,7 +15,7 @@ Microsoft has released some architectural patterns and guidance on how to achiev
 
 ![Protect APIs](protect-apis.png)
 
-This is a good solution and a powerful architecture, however it exposes the internal configuration (via /external and /internal) to end users, what if we want our users to have a more transparent experience?
+This is a good solution and a powerful architecture, however it exposes the internal configuration (via `/external` and `/internal`) to end users, what if we want our users to have a more transparent experience?
 
 In this blog post we are going to show you how you can configure API Management and Application Gateway to expose both external and internal APIs, ensuring that internal APIs cannot be accessed via the internet, while providing a transparent experience to users. At the same time as all of this we will enable internal development teams to target both the external and internal APIs.
 
@@ -34,7 +34,7 @@ The pattern should enable the same functionality as the existing architecture wi
 
 ![Internal External APIM](internal_external_apim.png)
 
-The above architecture proposes that Application Gateway is configured with both public and private IP addresses and respective listeners. These listeners have URL rewrites applied which insert `/internal` and `/external` in the base URL. APIs in Azure API Management are then configured with API URL suffixes of `/internal` and `/external`. The result is Application Gateway will route requests from its public and private IP addresses to the respective /internal and /external APIs in API Management. In addition with the DNS configuration of api.url.com and internal.api.url.com to the public and private IP addresses respectively, internal developers can target both the internal and external APIs as they wish.
+The above architecture proposes that Application Gateway is configured with both public and private IP addresses and respective listeners. These listeners have URL rewrites applied which insert `/internal` and `/external` in the base URL. APIs in Azure API Management are then configured with API URL suffixes of `/internal` and `/external`. The result is Application Gateway will route requests from its public and private IP addresses to the respective `/internal` and `/external` APIs in API Management. In addition with the DNS configuration of api.url.com and internal.api.url.com to the public and private IP addresses respectively, internal developers can target both the internal and external APIs as they wish.
 
 ### Configuration
 
